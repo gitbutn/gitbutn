@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Button from './App';
 import './App.css'
+import PropTypes from 'prop-types';
+import Joyride from 'react-joyride';
+
 import Header from './components/Header/Header';
 import Cookies from 'universal-cookie';
 import Footer from './components/Fotter/Fotter';
@@ -27,7 +30,7 @@ export default class MainApp extends Component {
             cln: 'a-scroll a-borderw',
             cln2: 'a-borderw',
             type: 'newbadge',
-            showLoading: true
+            showLoading: true,
         }
 
         this.urlForGitButn = `https://img.gitbutn.io/svg`;
@@ -35,9 +38,11 @@ export default class MainApp extends Component {
     }
 
 
+
     componentDidMount(){
             this.setState({
-                type: this.props.location.state !== undefined ? this.props.location.state.item : 'newbtn'
+                type: this.props.location.state !== undefined ? this.props.location.state.item : 'newbadge',
+                run: true
             })
 
         let load = cookie.get('load');
@@ -58,66 +63,6 @@ export default class MainApp extends Component {
                 showLoading: false
             })
         }
-    }
-
-    handelFata(e) {
-        this.setState({
-            dataUrl: `?&title=${e.title}&sub=${e.subTitle}&icon=${e.icon}&icx=${e.icx}&ibgx=${e.ibgx}&tcx=${e.tcx}&tbgx=${e.tbgx}&scx=${e.scx}`
-        })
-        console.log(`${this.urlForGitButn}/${this.state.dataUrl}`)
-    }
-
-
-    copyLink(){
-        this.setState({
-            showCopyLg: !this.state.showCopyLg
-        });
-            var textField = document.createElement('textarea')
-            textField.innerText = this.urlForGitButn + this.state.dataUrl + '&size=lg'
-            document.body.appendChild(textField)
-            textField.select()
-            document.execCommand('copy')
-            textField.remove()
-        setTimeout(()=> {
-            this.setState({
-                showCopyLg: !this.state.showCopyLg
-            });
-        }, 2000)
-    }
-
-    copyLinkMd(){
-        this.setState({
-            showCopyLg: !this.state.showCopyLg
-        })
-        const longUrl = this.urlForGitButn + this.state.dataUrl + '&size=md';
-            var textField = document.createElement('textarea')
-            textField.innerText = this.urlForGitButn + this.state.dataUrl + '&size=md'
-            document.body.appendChild(textField)
-            textField.select()
-            document.execCommand('copy')
-            textField.remove();
-            setTimeout(()=> {
-                this.setState({
-                    showCopyLg: !this.state.showCopyLg
-                });
-            }, 2000)
-    }
-
-    copyLinkSm(){
-        this.setState({
-            showCopyLg: !this.state.showCopyLg
-        })
-            var textField = document.createElement('textarea')
-            textField.innerText = this.urlForGitButn + this.state.dataUrl + '&size=sm'
-            document.body.appendChild(textField)
-            textField.select()
-            document.execCommand('copy')
-            textField.remove();
-            setTimeout(()=> {
-                this.setState({
-                    showCopyLg: !this.state.showCopyLg
-                });
-            }, 2000)
     }
 
 
@@ -156,7 +101,10 @@ export default class MainApp extends Component {
           }
       }
 
+
+
     render(){
+        const { steps, run } = this.state;
         const defaultOptions = {
             loop: false,
             autoplay: true,

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { TwitterPicker, SliderPicker } from "react-color";
+import PropTypes from 'prop-types';
+import Joyride from 'react-joyride';
 import Arrow from "./components/Arrow/Arrow";
 import Icons from "./components/Icons/Icons";
 import IconItem from "./components/Iconssearch/Iconssearch";
@@ -9,7 +11,29 @@ import { Copy, OpenWindow } from './components/Icons/CopyAndOpen';
 import { checkType } from './components/Actions';
 import Lottie from 'react-lottie';
 import * as animationD from './assets/sja.json';
-
+const stylesForTooltip = {
+  options: {
+    zIndex: 3000,
+    arrowColor: '#316dce',
+    primaryColor: '#ffffff',
+    textColor: '#ccc'
+  },
+  buttonClose: {
+    display: 'none'
+  },
+  buttonNext: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    color: '#ffffff',
+    border: 'none'
+  },
+  buttonBack: {
+    color: '#ffffff'
+  },
+  tooltip: {
+   backgroundColor: '#316dce',
+   color: '#ffffff'
+  },
+}
 class App extends Component {
   constructor(props) {
     super(props);
@@ -44,15 +68,99 @@ class App extends Component {
       cln2: "a-borderw",
       done: false,
       loading: false,
-      shortUrl: ''
+      shortUrl: '',
+      run: false,
+      steps: [
+        {
+          target: '.slider-picker-style-all',
+          content: 'Change icon background color',
+          placement: 'left',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.btn-container',
+          content: 'Your Changes will show up here',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.right-text-bg-changer',
+          content: 'Change Title and subtitle background color',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.change-title-value',
+          content: 'Change Title Value Here',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.change-title-color-tool',
+          content: 'Change Title Color with slider or hex value',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.change-subtitle-value',
+          content: 'Change Subtitle Value Here',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.change-subtitle-color-tool',
+          content: 'Change Subtitle color with slider or hex value',
+          placement: 'top',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.change-icon-color-tool',
+          content: 'Change icon color with slider or hex value',
+          placement: 'left',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.search-icon-tool',
+          content: 'Search for icons and click it load it',
+          placement: 'left',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.copy-lovy',
+          content: 'After You done with your awesome design click the size of button and this will create a link for it you can use the short url to call the image from any where',
+          placement: 'top',
+          styles: stylesForTooltip,
+        },
+        {
+          target: '.header-container-top',
+          content: 'You can create what you want here or search for available icons, or shrink image URL',
+          placement: 'bottom',
+          styles: stylesForTooltip,
+          locale: {
+            last: 'Start'
+          }
+        },
+      ]
     };
 
+    
     this.setTextBgColor = this.setTextBgColor.bind(this);
   }
+  static propTypes = {
+    joyride: PropTypes.shape({
+      callback: PropTypes.func
+    })
+  };
+
+  static defaultProps = {
+    joyride: {}
+  };
+
 
   componentDidMount() {
     this.setState({
-      searchArray: iconsArray
+      searchArray: iconsArray,
+      run: true
     });
   }
 
@@ -297,7 +405,9 @@ class App extends Component {
     window.open(this.state.shortUrl, '_blank')
   }
 
+
   render() {
+    const { steps, run } = this.state
     const defaultOptions = {
       loop: true,
       autoplay: true, 
@@ -307,10 +417,16 @@ class App extends Component {
       }
     };
     return (
+      <div>
+        <Joyride
+        steps={steps}
+        run={run}
+        continuous
+        showSkipButton
+        spotlightPadding 
+        />
       <div id="apph" className="App">
-        <div
-          className="all-container"
-        >
+        <div className="all-container">
           <div className='copy-lovy'>
             {!this.state.done ?
             <div className='copy-link-app-container'>
@@ -344,9 +460,9 @@ class App extends Component {
           <div className="options">
             {/* Left Button Bg Color*/}
 
-              <div helpocolors='Change Icon Background Color' className="slider-picker-style-all colorsnto">
+              <div className="slider-picker-style-all">
                 <div className="slider-picker-style">
-                  <div helpo="Change Icon Background Color" className="slider-conter">
+                  <div className="slider-conter">
                     <SliderPicker
                       onChange={e => this.setIconBgColor(e)}
                       color={this.state.iconbgcolor}
@@ -361,8 +477,6 @@ class App extends Component {
                 </div>
                 <Arrow width="30" className="arrow-top-left" fill={"#ccc"} />
               </div>
-            )}
-
             <div className="btn-container">
               <div
                 className="iconbg"
@@ -393,7 +507,7 @@ class App extends Component {
 
             {/* Right Button Bg Color*/}
 
-              <div helpocolors='Change Text Background Color'  className="slider-picker-style-all colorsnto">
+              <div helpocolors='Change Text Background Color'  className="slider-picker-style-all right-text-bg-changer">
                 <Arrow width="30" className="arrow-top-right" fill={"#ccc"} />
                 <div className="slider-picker-style">
                   <div className="slider-conter">
@@ -424,7 +538,7 @@ class App extends Component {
                     className="icon-arrow-top"
                   />
                   <div className="icon-input-holder">
-                    <div className="icon-left-colors-container">
+                    <div className="icon-left-colors-container change-icon-color-tool">
                       <div style={{ marginBottom: "10px" }}>
                         <TwitterPicker
                           onChange={e => this.changeIconColor(e)}
@@ -440,7 +554,7 @@ class App extends Component {
                         />
                       </div>
                     </div>
-                    <div className="subtext-input">
+                    <div className="subtext-input search-icon-tool">
                       <div className="colorValue" />
 
                       <input
@@ -467,10 +581,7 @@ class App extends Component {
                 </div>
               </div>
 
-              <div
-                className="color-picker-text"
-                style={{ display: this.state.showPicker1 ? "block" : "block" }}
-              >
+              <div className="color-picker-text">
                 <Arrow width="30" className="arrow" fill={"#ccc"} />
                 <div className="txt-div-container">
                   {/* inputs color and picker */}
@@ -478,6 +589,7 @@ class App extends Component {
                     className="inputs-holder-text"
                     style={{ backgroundColor: "#ccc" }}
                   >
+                  <div className='change-title-color-tool'>
                     <TwitterPicker
                       onChange={e => this.changeTitleColor(e)}
                       color={this.state.titleColor}
@@ -488,7 +600,8 @@ class App extends Component {
                       color={this.state.titleColor}
                       onChange={e => this.changeTitleColor(e)}
                     />
-                    <div className="text-input">
+                    </div>
+                    <div className="text-input change-title-value">
                       <div
                         className="colorValue"
                         onClick={() => this.showTitleColorPicker()}
@@ -515,7 +628,7 @@ class App extends Component {
                       />
                     </div>
 
-                    <div className="subtext-input">
+                    <div className="subtext-input change-subtitle-value">
                       <div
                         className="colorValue"
                         style={{ backgroundColor: this.state.subtitleColor }}
@@ -539,6 +652,7 @@ class App extends Component {
                         onClick={this.clearSubTitle.bind(this)}
                       />
                     </div>
+                    <div className='change-subtitle-color-tool'>
                     <TwitterPicker
                       onChange={e => this.changeSubTitleColor(e)}
                       color={this.state.subtitleColor}
@@ -550,11 +664,13 @@ class App extends Component {
                       color={this.state.subtitleColor}
                       onChange={e => this.changeSubTitleColor(e)}
                     />
+                    </div>
                   </div>
                 </div>
               </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

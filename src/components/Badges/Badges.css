@@ -53,8 +53,9 @@
 
 .edit-badge-info-bottom {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    padding: 10px;
     flex-direction: row;
     margin-top: 5px;
     background-color: #ccc;
@@ -64,7 +65,7 @@
 
 .edit-badge-info-top {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     margin-bottom: 5px;
@@ -144,8 +145,9 @@
     height: 28px;
     display: flex;
     padding: 0 10px 0 10px;
-    align-self: flex-end;
+    align-self: flex-start;
     margin-top: 10px;
+    margin-left: 30px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -154,4 +156,11 @@
 
 .showver p {
     font-size: 14px;
+}
+
+.badge-container-for-to {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

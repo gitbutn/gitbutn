@@ -1,8 +1,34 @@
 import React, { Component } from "react";
 import "./Hint.css";
 import IconType from "../IconHintType/IconHintType";
+import PropTypes from 'prop-types';
+import Joyride from 'react-joyride';
 import { checkType } from '../Actions';
 import Done from '../Done/Done';
+
+const stylesForTooltip = {
+  options: {
+    zIndex: 3000,
+    arrowColor: '#316dce',
+    primaryColor: '#ffffff',
+    textColor: '#ccc'
+  },
+  buttonClose: {
+    display: 'none'
+  },
+  buttonNext: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    color: '#ffffff',
+    border: 'none'
+  },
+  buttonBack: {
+    color: '#ffffff'
+  },
+  tooltip: {
+   backgroundColor: '#316dce',
+   color: '#ffffff'
+  },
+}
 
 export default class Hint extends Component {
   constructor(props) {
@@ -16,7 +42,25 @@ export default class Hint extends Component {
       iconType: "info",
       done: false,
       loading: false,
-      shortUrl: ''
+      shortUrl: '',
+      run: false,
+      steps: [
+        {
+          target: '.hint-sub-continer',
+          content: 'Click here and type somthing...',
+          placement: 'left',
+          styles: stylesForTooltip
+        },
+        {
+          target: '.shai',
+          content: 'Click here to change hint type',
+          placement: 'left',
+          styles: stylesForTooltip,
+          locale: {
+            last: 'Start'
+          }
+        },
+      ]
     };
 
     this.colors = {
@@ -25,6 +69,22 @@ export default class Hint extends Component {
       danger: "ff4642",
       success: "26cb7c"
     };
+  }
+
+  static propTypes = {
+    joyride: PropTypes.shape({
+      callback: PropTypes.func
+    })
+  };
+
+  static defaultProps = {
+    joyride: {}
+  };
+
+  componentDidMount() {
+    this.setState({
+      run: true
+    });
   }
 
   onChangeTextHint(e) {
@@ -176,8 +236,16 @@ export default class Hint extends Component {
   }
 
   render() {
+    const { steps, run } = this.state;
     return (
       <div className="Hint">
+       <Joyride
+        steps={steps}
+        run={run}
+        continuous
+        showSkipButton
+        spotlightPadding 
+        />
         <Done 
             title='Create Hint Link'
             doneclick={this.createHintLink.bind(this)}

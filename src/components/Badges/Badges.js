@@ -1,14 +1,40 @@
 import React, { PureComponent } from 'react';
 import { SliderPicker, MaterialPicker } from 'react-color';
 import './Badges.css';
+import PropTypes from 'prop-types';
+import Joyride from 'react-joyride';
 import Icons from '../Icons/Icons';
 import IconItem from '../Iconssearch/Iconssearch';
 import iconsArray from '../../assets/icons';
 import Done from '../Done/Done';
 import Lottie from  'lottie-react-web'
 import * as toggel from '../../assets/ver.json';
-
 import { checkType } from '../Actions/'
+
+const stylesForTooltip = {
+    options: {
+      zIndex: 3000,
+      arrowColor: '#316dce',
+      primaryColor: '#ffffff',
+      textColor: '#ccc'
+    },
+    buttonClose: {
+      display: 'none'
+    },
+    buttonNext: {
+      backgroundColor: 'rgba(0, 0, 0, 0)',
+      color: '#ffffff',
+      border: 'none'
+    },
+    buttonBack: {
+      color: '#ffffff'
+    },
+    tooltip: {
+     backgroundColor: '#316dce',
+     color: '#ffffff'
+    },
+  }
+
 
 export default class Badges extends PureComponent {
     constructor(props){
@@ -28,10 +54,90 @@ export default class Badges extends PureComponent {
             iconSearchStick: 'gitbutn',
             isToggled: false,
             loading: false,
-            done: false
+            done: false,
+            run: false,
+            steps: [
+              {
+                target: '.badge-container-for-to',
+                content: 'Start touring to help you',
+                placement: 'left',
+                styles: stylesForTooltip
+              },
+              {
+                target: '.edit-badge-info-top',
+                content: 'Left for badge left background color and right for badge right background color',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.badges-container',
+                content: 'Your changes will show up here',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.left-title-color-tool',
+                content: 'Change title and icon color',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.title-tool',
+                content: 'Change title value',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.sub-tool',
+                content: 'Change subtitle value',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.icon-search-tool',
+                content: 'Search for icons and click the icon to load it',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.right-title-color-tool',
+                content: 'Change subtitle color',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.showver',
+                content: 'Toggle, if green this will search title in npmjs for version and load it in subtitle if found',
+                placement: 'top',
+                styles: stylesForTooltip,
+              },
+              {
+                target: '.create-link-tool',
+                content: 'Finally :) , now you can create link for your awesome design!',
+                placement: 'top',
+                styles: stylesForTooltip,
+                locale: {
+                    last: 'Start'
+                  }
+              },
+            ]
         }
     }
-
+    static propTypes = {
+        joyride: PropTypes.shape({
+          callback: PropTypes.func
+        })
+      };
+    
+      static defaultProps = {
+        joyride: {}
+      };
+    
+      componentDidMount() {
+        this.setState({
+          run: true
+        });
+      }
     renderSerch(){
         var updatedList = iconsArray;
         updatedList = updatedList.filter((item) =>{
@@ -199,10 +305,18 @@ export default class Badges extends PureComponent {
               preserveAspectRatio: 'xMidYMid slice',
             }
         }
-        const s = 1;
+        const { steps, run } = this.state;
         return(
             <div className='Badges'>
-            <Done style={{marginBottom: '30px'}}
+                <Joyride
+                steps={steps}
+                run={run}
+                continuous
+                showSkipButton
+                spotlightPadding 
+                />
+            <div className='create-link-tool'>
+            <Done
                 title='Create Badge Link'
                 doneclick={this.createBadgeLink.bind(this)}
                 copyurl={this.copyUrl.bind(this)}
@@ -211,6 +325,8 @@ export default class Badges extends PureComponent {
                 done={this.state.done}
                 shorturl={this.state.shortUrl}
             />
+            </div>
+            <div className='badge-container-for-to'>
                 <div className='edit-badge-info-top'>
                     <div className='slider-for-badges'>
                         <SliderPicker color={this.state.lbgc} onChange={hex => this.changeLeftBgColor(hex)} />
@@ -242,23 +358,27 @@ export default class Badges extends PureComponent {
 
 
                 <div className='edit-badge-info-bottom'>
-                    <div className='slider-for-badges'>
+                    <div className='slider-for-badges left-title-color-tool'>
                         <SliderPicker color={this.state.ltc} onChange={hex => this.changeLeftTextColot(hex)} />
+                        <div style={{marginLeft: '10px', marginTop: '8px'}}>
+                            <MaterialPicker color={this.state.ltc} onChange={hex => this.changeLeftTextColot(hex)}  />
+                        </div>
                     </div>
-                    <MaterialPicker color={this.state.ltc} onChange={hex => this.changeLeftTextColot(hex)}  />
                     <div className='badges-inputs'>
-                        <input type='text' placeholder='left text' value={this.state.lefttxt} onChange={e => this.leftText(e)} />
+                        <input className='title-tool' type='text' placeholder='left text' value={this.state.lefttxt} onChange={e => this.leftText(e)} />
                         {!this.state.isToggled && 
-                        <input type='text' placeholder='right text' value={this.state.righttxt} onChange={e => this.rightText(e)} />
+                        <input className='sub-tool' type='text' placeholder='right text' value={this.state.righttxt} onChange={e => this.rightText(e)} />
                         }
-                        <input placeholder='add icon to badge' value={this.state.iconSearch} onChange={e => this.onChangeIconSearch(e)} />
+                        <input className='icon-search-tool' placeholder='add icon to badge' value={this.state.iconSearch} onChange={e => this.onChangeIconSearch(e)} />
                         {this.state.iconSearchStick.length > 2 && 
                             <button onClick={this.removeIcon.bind(this)}>Remove Icon</button>
                         }
                     </div>
-                    <MaterialPicker color={this.state.rtc} onChange={hex => this.changeRightTextColor(hex)} />
-                    <div className='slider-for-badges'>
-                        <SliderPicker color={this.state.rtc} onChange={hex => this.changeRightTextColor(hex)} />
+                    <div className='slider-for-badges right-title-color-tool'>
+                    <SliderPicker color={this.state.rtc} onChange={hex => this.changeRightTextColor(hex)} />
+                    <div style={{marginLeft: '10px', marginTop: '8px'}}>
+                        <MaterialPicker color={this.state.rtc} onChange={hex => this.changeRightTextColor(hex)} />
+                    </div>
                     </div>
                 </div>
                 <div className='bottom-icon-choice'>
@@ -280,6 +400,7 @@ export default class Badges extends PureComponent {
                         }}
                         />
                     </div>
+                </div>
                 </div>
             </div>
         );
