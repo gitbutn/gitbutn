@@ -1,0 +1,157 @@
+.Badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.badges-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+}
+
+.badge-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    background-color: rgb(190, 48, 108);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #fff;
+    font-size: 11px;
+}
+
+.badge-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(147, 89, 206);
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    font-size: 11px;
+}
+
+.badge-right p {
+    margin-top: 13px;
+}
+
+.badge-left p {
+    margin-top: 13px;
+}
+
+.edit-badge-info-bottom {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 5px;
+    background-color: #ccc;
+    border-radius: 5px;
+    z-index: 200;
+}
+
+.edit-badge-info-top {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 5px;
+    background-color: #ccc;
+    border-radius: 5px;
+    z-index: 200;
+}
+
+.badges-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+}
+
+.badges-inputs input{
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.5;
+    transition: all ease-in-out 0.3s;
+}
+
+.badges-inputs input:focus {
+    opacity: 1;
+}
+
+.badges-inputs button {
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: lightcoral;
+}
+
+.slider-for-badges {
+    width: 150px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.badge-icon-content {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+.bottom-icon-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.list-on-badges {
+    position: absolute;
+    top: 20%;
+}
+
+.showver {
+    background-color: #f2f2f2;
+    border-radius: 2px;
+    height: 28px;
+    display: flex;
+    padding: 0 10px 0 10px;
+    align-self: flex-end;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.showver p {
+    font-size: 14px;
+}

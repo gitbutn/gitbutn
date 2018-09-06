@@ -1,0 +1,107 @@
+@font-face {
+    font-family: Whitney;
+    src: url(../../assets/wsja091115.woff) format("woff");
+}
+.Shorty{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #111;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shorty-header {
+    width: 100%;
+}
+
+.shorty-input-comp {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #111;
+}
+
+.shorty-input-comp h1 {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: Whitney, Helvetica, Arial, sans-serif;
+    color: #fff;
+}
+
+.input-shrinky {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-shrinky button {
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #56c89a;
+    cursor: pointer;
+    font-weight: 500;
+    color: #fff;
+}
+
+.input-shrinky input {
+    width: 520px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    margin-right: 20px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 2px;
+}
+
+.shorty-container {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.holder-show-cao {
+    height: 200px;
+}
+
+.shorty-short {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 2px;
+    height: 60px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.shorty-short p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.shorty-short button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-img-sv {
+    fill: #999;
+    transition: all ease-in-out 0.2s;
+}
+.btn-img-sv:hover {
+    fill: #222;
+}
+
+.btn-img-sv:active {
+    fill: rgb(77, 90, 206);
+}

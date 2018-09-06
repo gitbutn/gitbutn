@@ -1,0 +1,126 @@
+.ShowAllIcons{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+    align-items: center;
+    flex-direction: column;
+}
+
+.copy-show-hint {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.7s
+}
+
+.copy-show-hint p {
+    background-color: rgba(255,255,255,1);
+    padding: 20px;
+    border: 2px solid #777;
+    border-radius: 5px;
+    animation: anmiteCopyText 0.5s ease-in-out forwards;
+}
+
+@keyframes anmiteCopyText {
+    0% {
+        opacity: 0.1;
+        transform: scale(0.2)
+    }
+    25%{
+        opacity: 1;
+        transform: scale(1.2)
+    }
+    50%{
+        opacity: 0.8;
+        transform: scale(0.9)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+.header-icons-comp {
+    width: 100%;
+    background-color: #111;
+}
+
+.show-all-icons-comp {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.search-icons-comp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background-color: #111;
+}
+
+.search-icons-comp input {
+    width: 40%;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.search-icons-comp input:focus {
+    opacity: 1;
+}
+
+.icon-item-all-viewer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin: 5px 5px;
+    transition: all ease-in-out 0.3s;
+    opacity: 0;
+    animation: iconAllAnimation 0.8s ease-in-out forwards;
+    cursor: pointer;
+}
+
+
+@keyframes iconAllAnimation {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.icon-all-serch-title {
+    font-size: 11px;
+}
