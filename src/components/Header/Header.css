@@ -72,5 +72,6 @@
 }
 
 .beta {
-    cursor: default;
+    color: rgb(60, 235, 168);
+    border-color: rgb(60, 235, 168);
 }

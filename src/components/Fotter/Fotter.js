@@ -89,7 +89,7 @@ const Footer = props => (
       </div>
     </div>
     <div className='by-contet'>
-    <p className="made-w">BUILD WITH</p>
+    <p className="made-w">BUILT WITH</p>
     <Lottie
             options={defaultOptions}
             height={70}

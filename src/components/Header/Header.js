@@ -30,7 +30,7 @@ const Header = props => (
                 <Link className='a-scroll a-borderw' to='/shorty'>URL Shortener</Link>
             </li>
             <li>
-                <span className='a-scroll a-borderw beta'>Beta</span>
+                <a href='https://github.com/Salehjarad/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
             </li>
         </ul>
         : 
@@ -45,7 +45,7 @@ const Header = props => (
             <Link className='a-scroll a-borderw' to='/shorty'>URL Shortener</Link>
         </li>
         <li>
-            <span className='a-scroll a-borderw beta'>Beta</span>
+            <a href='https://github.com/Salehjarad/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
         </li>
     </ul> 
         }
