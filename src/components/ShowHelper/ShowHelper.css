@@ -1,0 +1,57 @@
+.show-if-mb {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    z-index: 8000;
+    background-color: #222;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.show-if-mb-container {
+    display: flex;
+    padding: 5px 20px 5px 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.show-help-mon-content {
+    color: #fff;
+    font-size: 16px;
+}
+
+.show-if-mb-container a {
+    border-radius: 20px;
+    border: 2px solid #fff;
+    width: 230px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    animation: showGithubHelp 1.6s ease-in-out infinite;
+}
+
+.nfmu {
+    color: #aaa;
+}
+
+@keyframes showGithubHelp {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .show-if-mb{
+      display: flex;
+    }
+}

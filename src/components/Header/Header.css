@@ -1,11 +1,24 @@
 .header-container-top {
     display: flex;
+    position: relative;
+    align-self: center;
     margin-top: 7px;
     z-index: 800;
     flex-direction: row;
     justify-content: space-between;
     margin-right: 60px;
     margin-left: 60px;
+    padding: 0 10px 0 10px;
+}
+
+
+.logotxt {
+    transition: all 0.6s ease-in-out;
+    z-index: 800;
+  }
+
+.open-taps {
+    display: none;
 }
 
 .header-container-top ul {
@@ -14,19 +27,22 @@
     flex-direction: row;
     align-items: center;
     list-style: none;
+    text-align: center;
 }
 
 .header-container-top ul li {
     margin-left: 20px;
+    text-align: center;
 }
 
 .header-container-top ul li a {
     text-decoration: none;
     font-size: 14px;
+    text-align: center;
 }
 
 .a-scroll {
-    color: #fff;
+    color: #ffffff;
     background-color: rgba(0,0,0,0);
     border: none;
     font-size: 13px;
@@ -74,4 +90,82 @@
 .beta {
     color: rgb(60, 235, 168);
     border-color: rgb(60, 235, 168);
+}
+
+@media only screen and (max-width: 1165px) {
+    .header-container-top {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        transition: all ease-in-out 0.4s;
+    }
+
+    .logotxt {
+        align-self: flex-start;
+        margin-top: 20px;
+    }
+
+    .header-container-top ul {
+        flex-direction: row;
+        align-items: flex-start;
+        align-self: flex-start;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .header-container-top ul li {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header-container-top {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        width: 100%;
+        font-size: 14px;
+        position: relative;
+        z-index: 1000;
+        transition: all ease-in-out 0.4s;
+    }
+
+    .logotxt {
+        align-self: flex-start;
+        margin-top: 20px;
+    }
+
+    .header-container-top ul {
+        flex-direction: row;
+        align-items: flex-start;
+        align-self: flex-start;
+        justify-content: space-between;
+       margin: 0;
+       padding: 0;
+       margin-top: 20px;
+    }
+    .header-container-top ul li {
+        margin-left: 10px;
+    }
+
+    .a-borderb {
+        border: none;
+        text-align: center;
+    }
+
+    .a-borderw {
+        border: none;
+        text-align: center;
+    }
+
+    .beta {
+        border: none;
+        text-align: center;
+    }
 }

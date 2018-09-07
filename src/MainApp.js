@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Button from './App';
 import './App.css'
-import PropTypes from 'prop-types';
-import Joyride from 'react-joyride';
-
 import Header from './components/Header/Header';
 import Cookies from 'universal-cookie';
 import Footer from './components/Fotter/Fotter';
@@ -14,6 +11,7 @@ import Flag from './components/Flags/Flags';
 import Buttny from './components/Smallbtn/Smallbtn';
 import Lottie from 'react-lottie';
 import * as loadingLogo from './assets/logoani.json';
+import ShowHelper from './components/ShowHelper/ShowHelper';
 
 const cookie = new Cookies();
 
@@ -117,10 +115,9 @@ export default class MainApp extends Component {
             <div>
             {!this.state.showLoading ?
             <div className='main-app-container'>
+            <ShowHelper />
+            <div className='show-if-br'>
             <Pattrens />
-            <div className='not-allowd'>
-                <h2>:( Not Allowd ):</h2>
-            </div>
                 <Header all={true}
                 onClickHint={this.onClickHint.bind(this)}
                 />
@@ -128,6 +125,7 @@ export default class MainApp extends Component {
                     {this.renderCreater(this.state.type)}
                 </div>
                 <Footer onClickHint={this.onClickHint.bind(this)}/>
+            </div>
             </div>
             :
             <div className='loading-screen'>

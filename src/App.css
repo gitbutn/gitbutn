@@ -43,7 +43,7 @@ svg, button, a, h2, h1, h3, p {
   z-index: 500;
 }
 
-.not-allowd {
+/* .not-allowd {
   width: 100%;
   height: 100vh;
   background-color: #111;
@@ -56,7 +56,7 @@ svg, button, a, h2, h1, h3, p {
 .not-allowd h2 {
   color: #fff;
   font-weight: 700;
-}
+} */
 
 .App {
   display: flex;
@@ -92,7 +92,8 @@ svg, button, a, h2, h1, h3, p {
 
 .svg-ic {
   position: absolute;
-  opacity: 0.5;
+  opacity: 0.2;
+  transform: scale(0.7)
 }
 
 .options {
@@ -624,28 +625,73 @@ code {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .not-allowd {
-    display: flex;
-  }
-  .App {
-    display: none;
-  }
-  .finshed-butns-container {
+
+@media only screen and (max-width: 450px) {
+  .show-if-br{
     display: none;
   }
 }
 
-@media only screen and (max-height: 500px) {
-  .not-allowd {
+@media only screen and (max-width: 1024px) {
+  .btn-container {
     display: flex;
+    width: 200px;
+    height: 80px;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: rgba(133, 4, 4, 0);
+    border-style: dashed;
+    animation: borderAnimation 1s ease-in-out infinite;
+    flex-direction: row;
+    cursor: pointer;
   }
-  .App {
-    display: none;
+  .iconbg {
+    flex: 1.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
-  .finshed-butns-container {
-    display: none;
+
+  .txtbg {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: green;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
+
+  .txtbg h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+
+  .txtbg p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .icon-button-gitbutn {
+    width: 50px;
+  }
+
+  .copy-lovy {
+    padding: 20px;
+  }
+
+  .pickers-container {
+    transform: scale(0.7);
+    margin: -45px 0 0 45px; 
+  }
+
+
 }
 
 .copy-btn-in-app {

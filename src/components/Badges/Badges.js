@@ -60,7 +60,7 @@ export default class Badges extends PureComponent {
               {
                 target: '.badge-container-for-to',
                 content: 'Start touring to help you',
-                placement: 'left',
+                placement: 'top',
                 styles: stylesForTooltip
               },
               {

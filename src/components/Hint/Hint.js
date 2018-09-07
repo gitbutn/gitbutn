@@ -48,13 +48,13 @@ export default class Hint extends Component {
         {
           target: '.hint-sub-continer',
           content: 'Click here and type somthing...',
-          placement: 'left',
+          placement: 'top',
           styles: stylesForTooltip
         },
         {
           target: '.shai',
           content: 'Click here to change hint type',
-          placement: 'left',
+          placement: 'top',
           styles: stylesForTooltip,
           locale: {
             last: 'Start'

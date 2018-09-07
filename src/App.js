@@ -448,7 +448,7 @@ class App extends Component {
               :
               <div className='copy-link-app-container'>
                 <div helpo="Copy URL" onClick={this.copyUrl.bind(this)} className='copy-btn-to-copy tct-tt'>
-                  <Copy width='20' fill='#fff' />
+                  <Copy width='20' fill='#ffdf' />
                 </div>
                 <p>{this.state.shortUrl.split("://")[1]}</p>
                 <div helpo='Open Link' onClick={this.openUrl.bind(this)} className='copy-btn-to-copy tct-tt'>
@@ -487,6 +487,7 @@ class App extends Component {
                   icon={this.state.iconSearchStick}
                   width="80"
                   height="80"
+                  className='icon-button-gitbutn'
                   fill={this.state.iconColor}
                   logofill={this.state.iconColor}
                 />
@@ -524,7 +525,7 @@ class App extends Component {
                   />
                 </div>
               </div>
-            )}
+           
           </div>
 
           <div className="pickers-container">
