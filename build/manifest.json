@@ -1,0 +1,22 @@
+{
+  "short_name": "Gitbutn App",
+  "name": "Create Buttons Badges And More",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "images":[
+    {
+      "src": "oglogo.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#f2f2f2",
+  "background_color": "#111111"
+}
