@@ -11,7 +11,7 @@ export default class ShowHelper extends React.Component {
                     <p className='show-help-mon-content'>
                         built for developers to let them make awesome buttons and badges flags and small buttons for README.md in github, or you can call it as an image from
                         any where
-                        and a link to the svg design will be created after you design it, not for mobile use.
+                        and a link to the svg design will be created after you design it.
                     </p>
                     <p className='nfmu'>Not For Mobile Use</p>
                     <a href='https://github.com/salehjarad/gitbutn'>What Can I Make With GitButn</a>

@@ -30,9 +30,6 @@ export default class MainApp extends Component {
             type: 'newbadge',
             showLoading: true,
         }
-
-        this.urlForGitButn = `https://img.gitbutn.io/svg`;
-        this.testUrl = "https://img.gitbutn.io/svg?&title=Gitbutn&sub=Saleh%20jarad&icon=github&icx=ffffff&ibgx=8779d2&tcx=352d86&tbgx=b3bee6&scx=4062bf";
     }
 
 
@@ -40,7 +37,6 @@ export default class MainApp extends Component {
     componentDidMount(){
             this.setState({
                 type: this.props.location.state !== undefined ? this.props.location.state.item : 'newbadge',
-                run: true
             })
 
         let load = cookie.get('load');
