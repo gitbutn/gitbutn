@@ -64,6 +64,7 @@ export default class ShowAllIcons extends Component {
                 pathi={item.pathi}
                 pathj={item.pathj}
                 pathk={item.pathk}
+                type={item.type}
                 iconItemClick={() => this.copyName(item.icon)}
             />
         );

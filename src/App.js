@@ -52,13 +52,13 @@ class App extends Component {
       showPicker1: false,
       showPicker2: false,
       showPickerTitle: false,
-      titleColor: "#000000",
-      subtitleColor: "#333333",
-      txtBgColor: "#cccccc",
-      iconbgcolor: "#999999",
-      iconColor: "#000000",
-      title: "Title",
-      subtitle: "Subtitle",
+      titleColor: "#79D1D2",
+      subtitleColor: "#F1F1F1",
+      txtBgColor: "#5440BF",
+      iconbgcolor: "#409FBF",
+      iconColor: "#ffffff",
+      title: "Gitbutn",
+      subtitle: "Designs",
       iconSearch: "",
       iconSearchStick: "gitbutn",
       searchArray: [],
@@ -196,6 +196,13 @@ class App extends Component {
               pathc={item.pathc}
               pathd={item.pathd}
               pathe={item.pathe}
+              pathf={item.pathf}
+              pathg={item.pathg}
+              pathh={item.pathh}
+              pathi={item.pathi}
+              pathj={item.pathj}
+              pathk={item.pathk}
+              type={item.type}
               iconItemClick={() => this.setIconFromSearch(item.icon)}
             />
           ))}

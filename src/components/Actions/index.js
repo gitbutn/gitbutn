@@ -40,7 +40,8 @@ const hint = (list) => {
 };
 
 const badge = (list) => {
-    let uri = `${url}/badge/?&title=${list.title}&sub=${list.sub}&icon=${list.icon}&lco=${list.lco}&rco=${list.rco}&ltc=${list.ltc}&rtc=${list.rtc}&ver=${list.ver}`;
+    const isThereIcon = list.icon !== undefined && list.icon.length > 2 ? `&icon=${list.icon}&ico=${list.ltc}` : '';
+    let uri = `${url}/badge/?&title=${list.title}&sub=${list.sub}${isThereIcon}&lco=${list.lco}&rco=${list.rco}&ltc=${list.ltc}&rtc=${list.rtc}&ver=${list.ver}`;
     return new Promise((res, rej) => {
         fetch('https://u.gitbutn.io/new', {
             method: 'POST',

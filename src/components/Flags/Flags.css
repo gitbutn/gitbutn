@@ -20,14 +20,14 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    height: 18px;
-    padding-left: 3px;
-    padding-right: 3px;
+    height: 60px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .flag-show p {
-    font-size: 11px;
-    margin-top: 12px;
+    font-size: 16px;
+    margin-top: 16px;
 }
 
 .flag-changer {

@@ -3,6 +3,7 @@ import { SliderPicker, MaterialPicker } from 'react-color';
 import './Badges.css';
 import PropTypes from 'prop-types';
 import Joyride from 'react-joyride';
+import axios from 'axios';
 import Icons from '../Icons/Icons';
 import IconItem from '../Iconssearch/Iconssearch';
 import iconsArray from '../../assets/icons';
@@ -35,16 +36,30 @@ const stylesForTooltip = {
     },
   }
 
+  const getVersion =  async (title) => {
+    try {
+        const response = await axios.get(`http://registry.npmjs.org/${title.toLowerCase().trim()}/latest`);
+        const data = response.data;
+      if(!data || typeof data === 'undefined') {
+          return '';
+      }
+  
+      return data.version
+    } catch(e) {
+      // console.log(e);
+        return 'nothing'
+    }
+  }
 
 export default class Badges extends PureComponent {
     constructor(props){
         super(props);
 
         this.state = {
-            lefttxt: 'hello',
-            righttxt: 'world',
-            lbgc: '#BF4040',
-            rbgc: '#D27979',
+            lefttxt: 'Your Changes Will Show Up Here',
+            righttxt: 'For more help click the circle above',
+            lbgc: '#7840BF',
+            rbgc: '#40BFB0',
             ltc: '#ffffff',
             rtc: '#ffffff',
             searchArray: [],
@@ -172,6 +187,13 @@ export default class Badges extends PureComponent {
               pathc={item.pathc}
               pathd={item.pathd}
               pathe={item.pathe}
+              pathf={item.pathf}
+              pathg={item.pathg}
+              pathh={item.pathh}
+              pathi={item.pathi}
+              pathj={item.pathj}
+              pathk={item.pathk}
+              type={item.type}
               iconItemClick={() => this.setIconFromSearch(item.icon)}
             />)}
             </div>
@@ -236,7 +258,8 @@ export default class Badges extends PureComponent {
 
     removeIcon(){
         this.setState({
-            iconSearchStick: ''
+            iconSearchStick: '',
+            done: false
         })
     }
 
@@ -252,7 +275,7 @@ export default class Badges extends PureComponent {
             rco: rbgc.replace('#', ''),
             ltc: ltc.replace('#', ''), 
             rtc: rtc.replace('#', ''),
-            icon: iconSearchStick,
+            icon: iconSearchStick.length > 2 ? iconSearchStick : '',
             ver: this.state.isToggled ? 'true' : 'false'
         }
 
@@ -290,7 +313,35 @@ export default class Badges extends PureComponent {
     }
 
     handleClick = () => {
-        this.setState({ isToggled: !this.state.isToggled, done: false })
+        if(!this.state.isToggled) {
+            this.setState({
+                righttxt: 'searching npmjs...',
+                isToggled: !this.state.isToggled
+            })
+           getVersion(this.state.lefttxt).then((res) => {
+            if(res === 'nothing') {
+                return this.setState({
+                    righttxt: 'nothing found!',
+                    isToggled: !this.state.isToggled
+                })
+            }
+
+            this.setState({
+                righttxt: res
+            })
+
+           }).catch((e) => {
+            this.setState({
+                righttxt: 'nothing found!',
+                isToggled: !this.state.isToggled
+            })
+           })
+        } else {
+            this.setState({ 
+                isToggled: !this.state.isToggled, 
+                done: false, 
+            })
+        }
     }
 
 
@@ -346,7 +397,7 @@ export default class Badges extends PureComponent {
                     <div className='badge-left' style={{background: this.state.lbgc}}>
                         {this.state.iconSearch.length > 2 || this.state.iconSearchStick.length > 2 && 
                             <div className='badge-icon-content'>
-                                <Icons icon={this.state.iconSearchStick} width='16' height='16' fill={this.state.ltc} logofill={this.state.ltc}/>
+                                <Icons icon={this.state.iconSearchStick} width='30' height='30' fill={this.state.ltc} logofill={this.state.ltc}/>
                             </div>
                         }
                         <p style={{color: this.state.ltc}}>{this.state.lefttxt}</p>

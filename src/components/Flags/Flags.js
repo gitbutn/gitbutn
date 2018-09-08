@@ -8,9 +8,9 @@ export default class Flag extends Component {
         super(props);
 
         this.state = {
-            text: 'GitButn',
+            text: 'GitButn Flags',
             txtColor: '#fff',
-            bgColor: '#BF4040',
+            bgColor: '#40B1BF',
             loading: false,
             done: false,
             shortUrl: ''

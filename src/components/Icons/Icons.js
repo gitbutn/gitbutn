@@ -11,12 +11,8 @@ const Icons = (props) => {
       height={props.height}
       fill={props.fill}
       {...props}
-      version="1.1" id="Layer_1" 
-      xmlns="http://www.w3.org/2000/svg" 
-      xmlnsXlink="http://www.w3.org/1999/xlink" 
-      x="0px" y="0px"
       version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-           viewBox="0 0 24 24" style={{ enableBackground: 'new 0 0 29.7 18.2', fill: props.fill }} xmlSpace="preserve">
+           viewBox={icon.type === 'sja' ? "0 0 24 24" : "0 0 1792 1792"} style={{ enableBackground: 'new 0 0 29.7 18.2', fill: props.fill }} xmlSpace="preserve">
       <path d={icon.patha}/>
       <path d={icon.pathb}/>
       <path d={icon.pathc}/>

@@ -370,6 +370,7 @@ svg, button, a, h2, h1, h3, p {
   justify-content: left;
   align-items: center;
   flex-direction: row;
+  padding-left: 8px;
   width: 120px;
   cursor: pointer;
 }

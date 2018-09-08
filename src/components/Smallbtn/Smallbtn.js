@@ -63,6 +63,13 @@ export default class SmallBtn extends Component {
               pathc={item.pathc}
               pathd={item.pathd}
               pathe={item.pathe}
+              pathf={item.pathf}
+              pathg={item.pathg}
+              pathh={item.pathh}
+              pathi={item.pathi}
+              pathj={item.pathj}
+              pathk={item.pathk}
+              type={item.type}
               iconItemClick={() => this.setIconFromSearch(item.icon)}
             />)}
             </div>
@@ -145,7 +152,7 @@ export default class SmallBtn extends Component {
                     shorturl={this.state.shortUrl}
                 />
                 <div className='smallbtn-view' style={{backgroundColor: this.state.bgColor}}>
-                    <Icon icon={this.state.iconSearchStick} width='1em' height='1em' fill={this.state.iconColor} logofill={this.state.iconColor} />
+                    <Icon icon={this.state.iconSearchStick} width='2em' height='2em' fill={this.state.iconColor} logofill={this.state.iconColor} />
                 </div>
                 <div className='smallbtn-container'>
                    <div className='smallbtn-left-option'>

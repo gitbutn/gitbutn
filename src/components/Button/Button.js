@@ -66,6 +66,13 @@ class Button extends Component {
           pathc={item.pathc}
           pathd={item.pathd}
           pathe={item.pathe}
+          pathf={item.pathf}
+          pathg={item.pathg}
+          pathh={item.pathh}
+          pathi={item.pathi}
+          pathj={item.pathj}
+          pathk={item.pathk}
+          type={item.type}
           iconItemClick={() => this.setIconFromSearch(item.icon)}
         />)}
         </div>
@@ -166,20 +173,6 @@ class Button extends Component {
      })
   }
 
-
-  quoqAll(){
-    const { title, subtitle, iconSearchStick } = this.state;
-    if(title.length > 0 && subtitle.length > 0 && iconSearchStick.length > 0) {
-      let newurl = `http://danahku.herokuapp.com/svg?&title=${title}&sub=${subtitle}&size=md&showall=true&icon=${iconSearchStick}`;
-      console.log(newurl)
-      this.setState({
-        urlall: encodeURI(newurl)
-      })
-    } else {
-      console.log('error')
-    }
-  }
-
   copyUrl(){
     var textField = document.createElement('textarea')
     textField.innerText = this.state.urlall
@@ -272,9 +265,9 @@ class Button extends Component {
               onClick={this.clearIconSearch.bind(this)}
               />
             </div>
-
+            <div className='bottom-icon-choice-w'>
               {this.renderSerchDivo()}
-
+            </div>
             </div>
             </div>
           </div>
