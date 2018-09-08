@@ -24,12 +24,10 @@ import './Pattrens.css'
 const Pattrens = () => (
   <div className='ptso'>
     <img src={require('../../assets/pt1.svg')} width='200' alt='' className='pt1'/>
-    <img src={require('../../assets/pt1.svg')} width='200' alt='' className='pt1-a'/>
     <div className='circ-pt' />
     <div className='circ-pt-r' />
     <img src={require('../../assets/pt2.svg')} width='200' alt='' className='pt2'/>
     <img src={require('../../assets/pt3.svg')} width='200' alt='' className='pt3'/>
-    <img src={require('../../assets/pt3.svg')} width='200' alt='' className='pt3-a'/>
   </div>
 );
 

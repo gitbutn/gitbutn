@@ -1,7 +1,7 @@
 .ptso {
     z-index: -100;
-    opacity: 0.07;
-    display: block;
+    opacity: 0.05;
+    display: flex;
 }
 
 .pt1 {
@@ -12,21 +12,11 @@
 
 }
 
-.pt1-a {
-    position: absolute;
-    top: 38%;
-    left: 10%;
-    width: 190px;
-
-    transform: rotate(-180deg)
-}
-
 .pt2 {
     position: absolute;
-    left: -2px;
+    left: -30px;
     transform: rotate(0deg);
     bottom: 1px;
-
 }
 
 .circ-pt {
@@ -54,13 +44,6 @@
 .pt3 {
     position: absolute;
     right: -2%;
-    top: 20%;
+    top: 25%;
     width: 250px;
-}
-.pt3-a {
-    position: absolute;
-    top: 45%;
-    width: 250px;
-    transform: rotate(-90deg);
-    right: 0%;
 }
