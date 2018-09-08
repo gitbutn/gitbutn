@@ -38,7 +38,7 @@ const stylesForTooltip = {
 
   const getVersion =  async (title) => {
     try {
-        const response = await axios.get(`https://registry.npmjs.org/${title.toLowerCase().trim()}/latest`);
+        const response = await axios.get(`https://img.gitbutn.io/npm/${title.toLowerCase().trim()}`);
         const data = response.data;
       if(!data || typeof data === 'undefined') {
           return '';
@@ -319,7 +319,7 @@ export default class Badges extends PureComponent {
                 isToggled: !this.state.isToggled
             })
            getVersion(this.state.lefttxt).then((res) => {
-            if(res === 'nothing') {
+            if(res === 'nothing' || res === 'none') {
                 return this.setState({
                     righttxt: 'nothing found!',
                     isToggled: !this.state.isToggled
