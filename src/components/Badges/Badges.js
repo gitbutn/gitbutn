@@ -38,7 +38,7 @@ const stylesForTooltip = {
 
   const getVersion =  async (title) => {
     try {
-        const response = await axios.get(`http://registry.npmjs.org/${title.toLowerCase().trim()}/latest`);
+        const response = await axios.get(`https://registry.npmjs.org/${title.toLowerCase().trim()}/latest`);
         const data = response.data;
       if(!data || typeof data === 'undefined') {
           return '';
