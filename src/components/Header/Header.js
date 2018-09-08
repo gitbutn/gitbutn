@@ -15,7 +15,6 @@ export default class Header extends React.Component {
     }
 
     onClickHint(get){
-        console.log('ss')
         this.props.onClickHint(get);
     }
 
