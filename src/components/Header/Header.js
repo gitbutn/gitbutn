@@ -46,7 +46,7 @@ export default class Header extends React.Component {
                     <Link className='a-scroll a-borderw' to='/shorty'>URL Shortener</Link>
                 </li>
                 <li>
-                    <a href='https://github.com/Salehjarad/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
+                    <a href='https://github.com/gitbutn/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
                 </li>
             </ul>
         : 
@@ -61,7 +61,7 @@ export default class Header extends React.Component {
                     <Link className='a-scroll a-borderw' to='/shorty'>URL Shortener</Link>
                 </li>
                 <li>
-                    <a href='https://github.com/Salehjarad/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
+                    <a href='https://github.com/gitbutn/gitbutn' target='_blank' className='a-scroll a-borderw beta'>Examples For Use</a>
                 </li>
             </ul> 
         }

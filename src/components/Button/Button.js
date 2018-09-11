@@ -4,7 +4,6 @@ import Arrow from '../Arrow/Arrow';
 import Icons from '../Icons/Icons';
 import IconItem from '../Iconssearch/Iconssearch';
 import iconsArray from '../../assets/icons';
-import Copy from '../Icons/CopyIcon';
 
 class Button extends Component {
   constructor(props) {
@@ -29,7 +28,6 @@ class Button extends Component {
     }
 
     this.setTextBgColor = this.setTextBgColor.bind(this);
-    this.quoqAll = this.quoqAll.bind(this);
 
   }
 

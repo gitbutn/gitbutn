@@ -12,6 +12,7 @@ import Buttny from './components/Smallbtn/Smallbtn';
 import Lottie from 'react-lottie';
 import * as loadingLogo from './assets/logoani.json';
 import ShowHelper from './components/ShowHelper/ShowHelper';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const cookie = new Cookies();
 
