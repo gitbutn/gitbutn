@@ -1,6 +1,6 @@
 {
-  "name": "makeicons",
-  "version": "0.1.0",
+  "name": "gitbutn",
+  "version": "1.2.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
