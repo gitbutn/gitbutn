@@ -5,7 +5,7 @@
   </a>
   <br />
   <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank">
-    <img src="https://u.gitbutn.io/zvM3JQMgZ" />
+    <img src="https://img.gitbutn.io/badge/?&title=Licence&sub=CCO&icon=certificate&ico=ffffff&lco=40a3bf&rco=40BFB0&ltc=ffffff&rtc=ffffff&ver=false" />
   </a>
 <p>
   
